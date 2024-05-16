@@ -1,4 +1,5 @@
 using Microsoft.Azure.Cosmos;
+using Project.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 namespace Project
@@ -44,6 +45,8 @@ namespace Project
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IProgrmRepository, ProgramRepository>();
 
             var app = builder.Build();
 

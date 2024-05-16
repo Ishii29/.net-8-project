@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Project.Data;
@@ -17,6 +16,7 @@ namespace Project.Controllers
             this._progrmRepository = progrmRepository;
         }
 
+        [HttpGet("employer/{employerID}")]
         public async Task<ActionResult<IEnumerable<Programs>>> GetAllProgram(string employerID)
         {
             var programs = await _progrmRepository.GetProgramsAsync(employerID);
